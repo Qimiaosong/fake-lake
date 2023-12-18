@@ -1,2 +1,2 @@
 # fake-lake
-learning project from zero 
+learning project 
