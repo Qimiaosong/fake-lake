@@ -4,6 +4,8 @@ from typing import Any, Iterator, Tuple
 class ComputeEngine:
     mode: str
     work_dir: str
+    config_file: str = None
+    deployment_namespace: str = None
 
 
 class DB:
