@@ -3,6 +3,9 @@ from typing import Dict, Any
 from fastapi_sqlalchemy import db
 from loguru import logger
 
+from fastapi_pagination import Params, Page
+from fastapi_pagination.ext.sqlalchemy import paginate
+
 
 class DbHelper:
     # @staticmethod静态方法属于类，适合数学运算或工具函数
@@ -77,3 +80,13 @@ class DbHelper:
     def execute(statement, params=None) -> Any:
         return db.session.execute(statement, params)
 
+    @staticmethod
+    def custom_query_by_paginate(query, page: int, page_size: int, transformer=None) -> Any:
+        if page == 0 and page_size == 0:
+            res = query.all()
+            return Page(items=res, total=len(res))
+        return paginate(query, params=Params(page=page, size=page_size), transformer=transformer)
+
+    @staticmethod
+    def get_session():
+        return db.session

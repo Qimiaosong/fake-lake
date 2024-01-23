@@ -19,9 +19,27 @@ class DB:
     fakelake_dbname: str
 
 
+class CurrentUser:
+    user_name: str
+    pg_password: str
+    workspace_name: str
+
+
+class ProductInfo:
+    product_name: str
+    product_type: int
+    datasource_count: int
+    workspace_count: int
+    user_count: int
+    support_jdbc_query: str
+    tech_support: str
+
+
 class Settings:
     compute_engine = ComputeEngine()
     db = DB()
+    current_user = CurrentUser()
+    product_info = ProductInfo()
 
 
 _settings = Settings()
