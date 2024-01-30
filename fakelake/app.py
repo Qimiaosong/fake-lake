@@ -1,4 +1,5 @@
-import os, uvicorn
+import os
+import uvicorn
 
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import FileResponse, JSONResponse
