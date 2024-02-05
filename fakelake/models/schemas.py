@@ -40,6 +40,12 @@ class UserOutSchema(UserSchema):
     updated_at: datetime = Field(description="数据入湖任务更新时间")
 
 
+class LoginSchema(BaseModel):
+    name: str = Field(description="用户名")
+    password: Optional[str] = Field(description="用户密码")
+    license: Optional[str] = Field(description="用户授权license")
+
+
 # 当创建一个新的数据源时需要提供的信息的结构
 class DataSourceSchema(BaseModel):
     name: str = Field(description="数据源名称")

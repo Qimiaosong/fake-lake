@@ -25,6 +25,17 @@ class CurrentUser:
     workspace_name: str
 
 
+class UserCenter:
+    endpoint: str
+    front_endpoint: str
+    client_id: str
+    client_secret: str
+    certificate: str
+    org_name: str
+    application_name: str
+    callback_default_url: str
+
+
 class ProductInfo:
     product_name: str
     product_type: int
@@ -40,6 +51,7 @@ class Settings:
     db = DB()
     current_user = CurrentUser()
     product_info = ProductInfo()
+    user_center = UserCenter()
 
 
 _settings = Settings()
